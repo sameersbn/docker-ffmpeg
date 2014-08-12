@@ -1,4 +1,4 @@
-FROM sameersbn/ubuntu:12.04.20140628
+FROM sameersbn/ubuntu:12.04.20140812
 MAINTAINER sameer@damagehead.com
 
 RUN apt-get update && \
@@ -36,4 +36,4 @@ RUN alias make="make -j$(awk '/^processor/ { N++} END { print N }' /proc/cpuinfo
 			--enable-libx264 --enable-libmp3lame --enable-libvpx --enable-librtmp --enable-yasm \
 			--enable-ffmpeg --enable-ffplay --enable-ffserver --enable-network --enable-gnutls \
 			--enable-libopus --disable-debug --enable-libvo-aacenc --enable-version3 && \
-		make && make install && rm -rf /tmp/ffmpeg # 20140704
+		make && make install && rm -rf /tmp/ffmpeg # 20140812
