@@ -11,7 +11,7 @@ RUN apt-get update && \
 # install yasm, opus, vo-aacenc, x264, ffmpeg
 RUN alias make="make -j$(awk '/^processor/ { N++} END { print N }' /proc/cpuinfo)" && \
 		mkdir -p /tmp/yasm && \
-		wget http://anduin.linuxfromscratch.org/sources/BLFS/svn/y/yasm-1.2.0.tar.gz -O - | tar -zxf - -C /tmp/yasm --strip=1 && \
+		wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz -O - | tar -zxf - -C /tmp/yasm --strip=1 && \
 		cd /tmp/yasm && ./configure --prefix=/usr && make && make install && \
 		cd / && rm -rf /tmp/yasm && \
 		mkdir -p /tmp/opus && \
