@@ -6,7 +6,7 @@ RUN apt-get update && \
 			libogg-dev libtheora-dev libvorbis-dev librtmp-dev libvpx-dev \
 			libmpeg2-4-dev libxvidcore-dev libfaad-dev libmpg123-dev libmad0-dev \
 			libjpeg-dev libpng12-dev && \
-		apt-get clean && rm -rf /var/lib/apt/lists/* # 20140818
+		rm -rf /var/lib/apt/lists/* # 20140818
 
 # install yasm, opus, vo-aacenc, x264, ffmpeg
 RUN alias make="make -j$(awk '/^processor/ { N++} END { print N }' /proc/cpuinfo)" && \
