@@ -6,7 +6,7 @@ RUN apt-get update && \
       libogg-dev libtheora-dev libvorbis-dev librtmp-dev libvpx-dev \
       libmpeg2-4-dev libxvidcore-dev libfaad-dev libmpg123-dev libmad0-dev \
       libjpeg-dev libpng12-dev && \
-    rm -rf /var/lib/apt/lists/* # 20140818
+    rm -rf /var/lib/apt/lists/* # 20140901
 
 # install yasm, opus, vo-aacenc, x264, ffmpeg
 RUN alias make="make -j$(awk '/^processor/ { N++} END { print N }' /proc/cpuinfo)" && \
@@ -36,4 +36,4 @@ RUN alias make="make -j$(awk '/^processor/ { N++} END { print N }' /proc/cpuinfo
       --enable-libx264 --enable-libmp3lame --enable-libvpx --enable-librtmp --enable-yasm \
       --enable-ffmpeg --enable-ffplay --enable-ffserver --enable-network --enable-gnutls \
       --enable-libopus --disable-debug --enable-libvo-aacenc --enable-version3 && \
-    make && make install && rm -rf /tmp/ffmpeg # 20140812
+    make && make install && rm -rf /tmp/ffmpeg # 20140901
