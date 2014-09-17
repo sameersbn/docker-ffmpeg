@@ -26,7 +26,7 @@ RUN alias make="make -j$(awk '/^processor/ { N++} END { print N }' /proc/cpuinfo
     make && make install && \
     cd / && rm -rf /tmp/vo-aacenc && \
     mkdir -p /tmp/x264 && \
-    wget "http://git.videolan.org/?p=x264.git;a=snapshot;h=d6b4e63d2ed8d444b77c11b36c1d646ee5549276;sf=tgz" -O - | tar -zxf - -C /tmp/x264 --strip=1 && \
+    wget "http://git.videolan.org/?p=x264.git;a=snapshot;h=HEAD;sf=tgz" -O - | tar -zxf - -C /tmp/x264 --strip=1 && \
     cd /tmp/x264 && ./configure --prefix=/usr --enable-shared --disable-opencl && \
     make && make install && cd / && rm -rf /tmp/x264 && \
     mkdir -p /tmp/ffmpeg/ && \
