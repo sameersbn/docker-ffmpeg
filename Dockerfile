@@ -1,12 +1,12 @@
-FROM sameersbn/ubuntu:14.04.20140818
+FROM sameersbn/debian:jessie.20140918
 MAINTAINER sameer@damagehead.com
 
 RUN apt-get update && \
-    apt-get install -y make bzip2 pkg-config libgnutls-dev libmp3lame-dev \
+    apt-get install -y gcc make bzip2 libc6-dev libgnutls-dev libmp3lame-dev \
       libogg-dev libtheora-dev libvorbis-dev librtmp-dev libvpx-dev \
       libmpeg2-4-dev libxvidcore-dev libfaad-dev libmpg123-dev libmad0-dev \
       libjpeg-dev libpng12-dev && \
-    rm -rf /var/lib/apt/lists/* # 20140901
+    rm -rf /var/lib/apt/lists/* # 20140918
 
 # install yasm, opus, vo-aacenc, x264, ffmpeg
 RUN alias make="make -j$(awk '/^processor/ { N++} END { print N }' /proc/cpuinfo)" && \
@@ -36,4 +36,4 @@ RUN alias make="make -j$(awk '/^processor/ { N++} END { print N }' /proc/cpuinfo
       --enable-libx264 --enable-libmp3lame --enable-libvpx --enable-librtmp --enable-yasm \
       --enable-ffmpeg --enable-ffplay --enable-ffserver --enable-network --enable-gnutls \
       --enable-libopus --disable-debug --enable-libvo-aacenc --enable-version3 && \
-    make && make install && rm -rf /tmp/ffmpeg # 20140901
+    make && make install && rm -rf /tmp/ffmpeg # 20140918
