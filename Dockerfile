@@ -30,7 +30,7 @@ RUN alias make="make -j$(awk '/^processor/ { N++} END { print N }' /proc/cpuinfo
     cd /tmp/x264 && ./configure --prefix=/usr --enable-shared --disable-opencl && \
     make && make install && cd / && rm -rf /tmp/x264 && \
     mkdir -p /tmp/ffmpeg/ && \
-    wget "http://git.videolan.org/?p=ffmpeg.git;a=snapshot;h=1bec8ce91107198e2099b2ef40cda5271a7ab853;sf=tgz" -O - | tar zxf - --strip=1 -C /tmp/ffmpeg/ && \
+    wget "http://git.videolan.org/?p=ffmpeg.git;a=snapshot;h=HEAD;sf=tgz" -O - | tar zxf - --strip=1 -C /tmp/ffmpeg/ && \
     cd /tmp/ffmpeg/ && \
     ./configure --prefix=/usr --disable-static --enable-shared --enable-gpl --enable-nonfree \
       --enable-libx264 --enable-libmp3lame --enable-libvpx --enable-librtmp --enable-yasm \
