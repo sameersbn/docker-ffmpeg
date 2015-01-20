@@ -14,13 +14,13 @@ alias make="make -j$(awk '/^processor/ { N++} END { print N }' /proc/cpuinfo)"
 
 # compile x264
 mkdir -p /tmp/x264
-wget "http://git.videolan.org/?p=x264.git;a=snapshot;h=HEAD;sf=tgz" -O - | tar -zxf - -C /tmp/x264 --strip=1
+wget "ftp://ftp.videolan.org/pub/x264/snapshots/last_x264.tar.bz2" -O - | tar -jxf - -C /tmp/x264 --strip=1
 cd /tmp/x264 && ./configure --prefix=/usr --enable-shared --disable-opencl
 make && make install
 
 # compile ffmpeg
 mkdir -p /tmp/ffmpeg/
-wget "http://git.videolan.org/?p=ffmpeg.git;a=snapshot;h=HEAD;sf=tgz" -O - | tar zxf - --strip=1 -C /tmp/ffmpeg/
+wget "http://www.ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2" -O - | tar -jxf - -C /tmp/ffmpeg/ --strip=1
 cd /tmp/ffmpeg/
 ./configure --prefix=/usr --disable-static --enable-shared --enable-gpl --enable-nonfree \
   --enable-libx264 --enable-libmp3lame --enable-libvpx --enable-librtmp --enable-yasm \
