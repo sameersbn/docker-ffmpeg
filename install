@@ -10,7 +10,7 @@ apt-get install -y gcc make yasm bzip2 \
   libvorbis-dev libfaad-dev libmp3lame-dev libmpg123-dev libmad0-dev libopus-dev libvo-aacenc-dev
 
 # use all available processor cores for the build
-alias make="make -j$(awk '/^processor/ { N++} END { print N }' /proc/cpuinfo)"
+alias make="make -j$(nproc)"
 
 # compile x264
 mkdir -p /tmp/x264
