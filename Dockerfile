@@ -1,6 +1,9 @@
 FROM sameersbn/ubuntu:14.04.20150613
 MAINTAINER sameer@damagehead.com
 
+ENV X264_VERSION=snapshot-20150627-2245-stable \
+    FFMPEG_VERSION=2.7.1
+
 RUN apt-get update \
  && apt-get install -y bzip2 libgnutlsxx27 libogg0 libjpeg8 libpng12-0 \
       libvpx1 libtheora0 libxvidcore4 libmpeg2-4 \

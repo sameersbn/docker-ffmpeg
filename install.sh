@@ -21,14 +21,14 @@ sed 's,prefix=/usr/local,prefix=/usr,' -i librtmp/Makefile
 make && make install
 
 # compile x264
+wget "http://ftp.videolan.org/pub/x264/snapshots/x264-${X264_VERSION}.tar.bz2" -O /tmp/x264-${X264_VERSION}.tar.bz2
 mkdir -p /tmp/x264
-wget "ftp://ftp.videolan.org/pub/x264/snapshots/last_x264.tar.bz2" -O - | tar -jxf - -C /tmp/x264 --strip=1
 cd /tmp/x264 && ./configure --prefix=/usr --enable-shared --disable-opencl
 make && make install
 
 # compile ffmpeg
 mkdir -p /tmp/ffmpeg/
-wget "http://www.ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2" -O - | tar -jxf - -C /tmp/ffmpeg/ --strip=1
+wget "http://www.ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.bz2" -O - | tar -jxf - -C /tmp/ffmpeg/ --strip=1
 cd /tmp/ffmpeg/
 ./configure --prefix=/usr --disable-static --enable-shared --enable-gpl --enable-nonfree \
   --enable-libx264 --enable-libmp3lame --enable-libvpx --enable-librtmp --enable-yasm \
@@ -43,7 +43,7 @@ apt-get purge -y --auto-remove gcc make yasm bzip2 \
   libvorbis-dev libfaad-dev libmp3lame-dev libmpg123-dev libmad0-dev libopus-dev libvo-aacenc-dev
 
 # cleanup
-rm -rf /tmp/rtmpdump/
-rm -rf /tmp/x264
-rm -rf /tmp/ffmpeg
+rm -rf /tmp/rtmpdump.tar.gz /tmp/rtmpdump/
+rm -rf /tmp/x264-snapshot-${X264_VERSION}.tar.bz2 /tmp/x264
+rm -rf /tmp/ffmpeg-${FFMPEG_VERSION}.tar.bz2 /tmp/ffmpeg
 rm -rf /var/lib/apt/lists/*
