@@ -1,8 +1,8 @@
 FROM sameersbn/ubuntu:14.04.20150613
 MAINTAINER sameer@damagehead.com
 
-ENV X264_VERSION=snapshot-20150627-2245-stable \
-    FFMPEG_VERSION=2.7.1
+ENV FFMPEG_VERSION=2.7.1 \
+    X264_VERSION=snapshot-20150627-2245-stable
 
 RUN apt-get update \
  && apt-get install -y bzip2 libgnutlsxx27 libogg0 libjpeg8 libpng12-0 \
