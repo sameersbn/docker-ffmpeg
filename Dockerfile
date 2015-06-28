@@ -8,5 +8,4 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/* # 20150613
 
 COPY install.sh /install.sh
-RUN chmod 755 /install.sh
-RUN /install.sh
+RUN bash /install.sh
