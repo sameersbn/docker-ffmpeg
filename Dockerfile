@@ -7,5 +7,5 @@ RUN apt-get update \
       libvorbis0a libfaad2 libmp3lame0 libmpg123-0 libmad0 libopus0 libvo-aacenc0 \
  && rm -rf /var/lib/apt/lists/* # 20150613
 
-COPY install.sh /install.sh
-RUN bash /install.sh
+COPY install.sh /var/cache/ffmpeg/install.sh
+RUN bash /var/cache/ffmpeg/install.sh
