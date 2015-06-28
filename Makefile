@@ -4,5 +4,4 @@ build:
 	@docker build --tag=${USER}/ffmpeg .
 
 release: build
-	@docker build --tag=${USER}/ffmpeg:$(shell date +%Y%m%d) .
-
+	@docker build --tag=${USER}/ffmpeg:$(cat VERSION) .
