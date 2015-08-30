@@ -1,7 +1,7 @@
 FROM sameersbn/ubuntu:14.04.20150825
 MAINTAINER sameer@damagehead.com
 
-ENV FFMPEG_VERSION=2.7.1 \
+ENV FFMPEG_VERSION=2.7.2 \
     X264_VERSION=snapshot-20150829-2245-stable
 
 RUN apt-get update \
