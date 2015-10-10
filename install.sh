@@ -4,7 +4,7 @@ set -e
 apt-get update
 
 # install build dependencies
-apt-get install -y gcc make yasm bzip2 \
+DEBIAN_FRONTEND=noninteractive apt-get install -y gcc make yasm bzip2 \
   libc6-dev libgnutls-dev libogg-dev libjpeg-dev libpng12-dev \
   libvpx-dev libtheora-dev libxvidcore-dev libmpeg2-4-dev libssl-dev \
   libvorbis-dev libfaad-dev libmp3lame-dev libmpg123-dev libmad0-dev libopus-dev libvo-aacenc-dev
