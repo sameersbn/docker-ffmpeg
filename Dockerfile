@@ -1,7 +1,7 @@
 FROM quay.io/sameersbn/ubuntu:14.04.20151023
 MAINTAINER sameer@damagehead.com
 
-ENV FFMPEG_VERSION=2.7.2 \
+ENV FFMPEG_VERSION=2.8.1 \
     X264_VERSION=snapshot-20151022-2245-stable
 
 RUN apt-get update \
