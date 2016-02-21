@@ -51,7 +51,7 @@ cd /tmp/ffmpeg/
 ./configure --prefix=/usr --disable-static --enable-shared --enable-gpl --enable-nonfree \
   --enable-libx264 --enable-libmp3lame --enable-libvpx --enable-librtmp --enable-yasm \
   --enable-ffmpeg --enable-ffplay --enable-ffserver --enable-network --enable-gnutls \
-  --enable-libopus --disable-debug --enable-libvo-aacenc --enable-version3
+  --enable-libopus --disable-debug --enable-version3
 make && make install
 
 echo "Cleaning up..."
