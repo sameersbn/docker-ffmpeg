@@ -1,4 +1,4 @@
-FROM sameersbn/ubuntu:14.04.20160416
+FROM sameersbn/ubuntu:14.04.20160422
 MAINTAINER sameer@damagehead.com
 
 ENV FFMPEG_VERSION=3.0.1 \
