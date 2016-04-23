@@ -9,9 +9,6 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y gcc make yasm bzip2 \
   libvpx-dev libtheora-dev libxvidcore-dev libmpeg2-4-dev libssl-dev \
   libvorbis-dev libfaad-dev libmp3lame-dev libmpg123-dev libmad0-dev libopus-dev libvo-aacenc-dev
 
-# use all available processor cores for the build
-alias make="make -j$(nproc)"
-
 # RTMPSuck
 echo "Downloading rtmpdump..."
 wget "http://repo.or.cz/w/rtmpdump.git/snapshot/HEAD.tar.gz" -O /tmp/rtmpdump.tar.gz
@@ -24,7 +21,7 @@ echo "Building rtmpdump..."
 cd /tmp/rtmpdump/
 sed 's,prefix=/usr/local,prefix=/usr,' -i Makefile
 sed 's,prefix=/usr/local,prefix=/usr,' -i librtmp/Makefile
-make && make install
+make -j$(nproc) && make install
 
 # x264
 echo "Downloading x264..."
@@ -36,7 +33,7 @@ tar -jxf /tmp/x264-${X264_VERSION}.tar.bz2 -C /tmp/x264 --strip=1
 
 echo "Building x264..."
 cd /tmp/x264 && ./configure --prefix=/usr --enable-shared --disable-opencl
-make && make install
+make -j$(nproc) && make install
 
 # FFMpeg
 echo "Downloading ffmpeg..."
@@ -52,7 +49,7 @@ cd /tmp/ffmpeg/
   --enable-libx264 --enable-libmp3lame --enable-libvpx --enable-librtmp --enable-yasm \
   --enable-ffmpeg --enable-ffplay --enable-ffserver --enable-network --enable-gnutls \
   --enable-libopus --disable-debug --enable-version3
-make && make install
+make -j$(nproc) && make install
 
 echo "Cleaning up..."
 
