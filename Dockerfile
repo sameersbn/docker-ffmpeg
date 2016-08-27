@@ -2,7 +2,7 @@ FROM sameersbn/ubuntu:14.04.20160827
 MAINTAINER sameer@damagehead.com
 
 ENV FFMPEG_VERSION=3.1.2 \
-    X264_VERSION=snapshot-20160820-2245-stable
+    X264_VERSION=snapshot-20160826-2245-stable
 
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y bzip2 libgnutlsxx27 libogg0 libjpeg8 libpng12-0 \
