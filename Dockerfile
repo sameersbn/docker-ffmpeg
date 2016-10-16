@@ -1,7 +1,7 @@
 FROM sameersbn/ubuntu:14.04.20161014
 MAINTAINER sameer@damagehead.com
 
-ENV FFMPEG_VERSION=3.1.3 \
+ENV FFMPEG_VERSION=3.1.4 \
     X264_VERSION=snapshot-20160826-2245-stable
 
 RUN apt-get update \
